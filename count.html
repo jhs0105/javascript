@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word relay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/word-relay.css" />
+
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/5f5f753b4c.js" crossorigin="anonymous"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="js/splitting.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/hangul-tools.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>number<strong>count</strong></h1>
+    </header>
+    <div>
+      <!-- <button class="btn-plus">+</button>
+      <button class="btn-minus">-</button> -->
+      <span class="num" style="font-size: 100px; color: #fff"></span>
+      <span class="num02" style="font-size: 100px; color: #f00"></span>
+      <span class="num03" style="font-size: 100px; color: #ff0"></span>
+    </div>
+    <script>
+      let count = 0;
+      let count02 = 0;
+      let count03 = 0;
+      // $(".btn-plus").on("click", function () {
+      //   count += 1; //count++; //count = count + 1;
+      //   $(".num").text(count);
+      // });
+      // $(".num").on("click", function () {
+      //   clearInterval(clear);
+      // });
+
+      function aa() {
+        count++;
+        $(".num").text(count);
+        if (count >= 100) {
+          clearInterval(clear);
+        }
+      }
+
+      function bb() {
+        count02++;
+        $(".num02").text(count02);
+        if (count02 >= 150) {
+          clearInterval(clear02);
+        }
+      }
+
+      let clear = setInterval(aa, 10);
+      let clear02 = setInterval(bb, 10);
+
+      //aa()로 쓰면 안된다.
+      //clear를 앞에 붙여서 호출할 곳에 넣어주면 멈춰준다.
+
+      function cc() {
+        count03++;
+        $(".num03").text(count03);
+        if (count03 >= 250) {
+          cancelAnimationFrame(cc);
+        } else {
+          requestAnimationFrame(cc); //재귀호출 recursion
+        }
+      }
+      requestAnimationFrame(cc); //시간을 쓸 수 없다.
+    </script>
+  </body>
+</html>

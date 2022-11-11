@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word relay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/word-relay.css" />
+
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/5f5f753b4c.js" crossorigin="anonymous"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="js/splitting.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/hangul-tools.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>number<strong>count</strong></h1>
+    </header>
+    <div>
+      <span class="num" style="font-size: 100px; color: #fff">0</span>
+      <span class="num02" style="font-size: 100px; color: #f00">0</span>
+      <span class="num03" style="font-size: 100px; color: #ff0">0</span>
+    </div>
+    <script>
+      // console.log(Math.ceil(0.2)); //Math.ceil은 소수점을 버리고 올려버리는 함수 1 나옴
+      // console.log(Math.floor(0.9)); //Math.floor은 소수점을 버리고 낮추는 함수 0 나옴
+      // console.log(Math.round(0.9)); //Math.round은 반올림.
+      const mySkill = {
+        html: 90,
+        Css: 85, //css는 동작안함
+        js: 72,
+      };
+      gsap.from(mySkill, {
+        html: 0,
+        Css: 0,
+        js: 0,
+        duration: 3,
+        onComplete: function () {
+          //끝났을때 한번만
+          //clearInterval(clear);
+        },
+        onUpdate: function () {
+          //변화가 감지될때마다..
+          $(".num").text(Math.round(mySkill.html));
+          $(".num02").text(Math.round(mySkill.Css));
+          $(".num03").text(Math.round(mySkill.js));
+        },
+      });
+      // console.log(mySkill.html);
+
+      // let clear = setInterval(function () {
+      //   console.log(mySkill.html);
+      //   $(".num").text(mySkill.html);
+      //   $(".num02").text(mySkill.css);
+      //   $(".num03").text(mySkill.js);
+      // }, 100); //소수점이 나온다..
+    </script>
+  </body>
+</html>

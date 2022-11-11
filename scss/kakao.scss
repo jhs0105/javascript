@@ -1,0 +1,84 @@
+@import "vars";
+@import "mixins";
+
+.search {
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+  input {
+    width: 600px;
+    height: 60px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    padding: 0 30px;
+    border-radius: 100px;
+    font-size: 18px;
+  }
+  button {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    font-size: 28px;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    margin-left: 10px;
+  }
+}
+
+.result {
+  .list {
+    display: flex;
+    width: 1200px;
+    margin: 100px auto;
+    flex-wrap: wrap;
+    li {
+      flex-basis: 5%; //5%는 20개, 10%는 10개씩 들어가는
+      //flex-grow: 1; //여백을 나누어 가지지만..마지막에 그림이 적으면 그만큼 늘어난다.
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.web-result {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .list {
+    width: 1400px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    > li {
+      flex-basis: 40%;
+      flex-grow: 1;
+      margin: 10px 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      overflow: hidden;
+      &:hover {
+        .contents {
+          text-decoration: underline;
+        }
+      }
+      h3 {
+        width: 100%;
+        @include ellipsis;
+        font-size: 20px;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      .contents {
+        font-size: 18px;
+        opacity: 0.7;
+        @include multiElilipsis;
+      }
+    }
+  }
+}

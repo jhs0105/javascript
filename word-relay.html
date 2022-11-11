@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word relay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/word-relay.css" />
+
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/5f5f753b4c.js" crossorigin="anonymous"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="js/splitting.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/hangul-tools.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>word <strong>relay</strong></h1>
+    </header>
+    <ul id="word-list">
+      <li>기러기</li>
+    </ul>
+    <div id="input">
+      <input type="text" placeholder="끝말잇기" id="word" />
+    </div>
+
+    <script>
+      const num = 10;
+      let txt = "기러기";
+      const wordArray = [txt];
+      //const wordArray = ["호랑이","기러기","코끼리"];
+      //console.log(wordArray.includes("사자"));
+
+      //$("#word-list li").html("기러기"); //html일떄 태그로 감싸면 tag도 들어간다. <a>태그 같은거..
+      $("#word-list li").text(txt);
+
+      // console.log(txt.charAt(0));
+      // console.log(txt.charAt(1));
+      // console.log(txt.charAt(2));
+      //charAt각 숫자의 글자를 알려줌
+
+      $("#word").on("keyup", function (e) {
+        //console.log(e.keyCord);
+        if (e.keyCode === 13) {
+          const word = $("#word");
+          const inputValue = word.val();
+          const firstChar = inputValue.charAt(0);
+          const lastChar = txt.charAt(2);
+
+          if (firstChar === lastChar && !wordArray.includes(inputValue)) {
+            console.log("ok");
+            txt = inputValue; //const로 변수지정하면 변수를 수정할 수 없다. 그러니 txt는 let으로 변수를 설정해야 한다.
+            //$("#word-list li").text(txt);
+            //$("#word-list").html(`<li>${txt}</li>`); //html은 없애고 대체한다.
+            $("#word-list").append(`<li>${txt}</li>`); //html이 추가된다.
+            wordArray.push(txt); //배열에 추가하는 것!
+            // word.val("");
+            // word.focus();
+          } else {
+            gsap.from("#word", { x: 100, ease: "elastic" });
+            // word.val(""); 반복되는 것이니 밖으로 빼놓음
+            // word.focus();
+          }
+          word.val("");
+          word.focus();
+        }
+      });
+    </script>
+  </body>
+</html>
