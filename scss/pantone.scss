@@ -1,0 +1,88 @@
+@import "mixins";
+
+.category {
+  margin: 100px auto;
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      width: 150px;
+      height: 60px;
+      background-color: rgb(22, 22, 22, 0.5);
+      color: #fff;
+      border-radius: 100px;
+      margin: 0 5px;
+      @include flex;
+      font-size: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      overflow: hidden;
+      &.on {
+        @include longShadow(40, darken(#111, 5));
+        background-color: #111;
+      }
+    }
+  }
+}
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  .txt {
+    outline: none;
+    height: 50px;
+    width: 500px;
+    border: none;
+    border-radius: 100px 0 0 100px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+  button {
+    height: 50px;
+    width: 100px;
+    border-radius: 0 100px 100px 0;
+    background-color: #111;
+    color: #fff;
+    cursor: pointer;
+    i {
+      font-size: 25px;
+    }
+  }
+}
+
+.list {
+  .item-list {
+    width: 1400px;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    li {
+      width: calc(100% / 7);
+      box-sizing: border-box;
+      background-color: #555;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .color {
+      width: 180px;
+      box-sizing: border-box;
+      height: 180px;
+      border: 3px solid #fff;
+    }
+    .contents {
+      padding: 5px;
+      width: 180px;
+
+      box-sizing: border-box;
+      background-color: #fff;
+      line-height: 1.2;
+      @include ellipsis;
+    }
+  }
+}

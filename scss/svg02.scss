@@ -1,0 +1,35 @@
+body {
+  background-color: rgb(99, 211, 255);
+}
+#main-visual {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  svg {
+    width: 600px;
+    path {
+      stroke-width: 2px;
+      //stroke-dasharray: 3000;
+      &.cls-1 {
+        opacity: 0;
+      }
+      &.cls-2 {
+        opacity: 0;
+      }
+      &.cls-3 {
+        opacity: 0;
+      }
+    }
+  }
+  .title {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: clamp(48px, 8vw, 180px);
+    font-weight: 100;
+  }
+}

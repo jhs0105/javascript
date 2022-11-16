@@ -1,0 +1,44 @@
+body {
+  background-color: rgb(241, 197, 197);
+}
+
+#main-visual {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+}
+#main-visual svg {
+  width: 600px;
+}
+#main-visual svg path.cls-1 {
+  opacity: 0;
+}
+#main-visual svg path.cls-2 {
+  opacity: 0;
+}
+#main-visual svg path.cls-3 {
+  opacity: 0;
+}
+#main-visual svg path.cls-4 {
+  stroke-width: 2px;
+  stroke-dasharray: 4890;
+  stroke-dashoffset: 4890;
+}
+#main-visual .title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(48px, 10vw, 180px);
+  font-weight: 300;
+}
+
+@keyframes svg-ani {
+  0% {
+    stroke-dashoffset: 4890;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

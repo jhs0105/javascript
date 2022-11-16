@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(241, 197, 197);
+}
+#main-visual {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  svg {
+    width: 600px;
+    path {
+      &.cls-1 {
+        opacity: 0;
+      }
+      &.cls-2 {
+        opacity: 0;
+      }
+      &.cls-3 {
+        opacity: 0;
+      }
+      &.cls-4 {
+        stroke-width: 2px; //라인이 두꺼워 진다.(두께 조절)
+        stroke-dasharray: 4890;
+        stroke-dashoffset: 4890;
+        //animation: svg-ani 20s linear 1s 1 forwards; //forwards 하면 남는다
+      }
+    }
+  }
+  .title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(48px, 10vw, 180px);
+    font-weight: 300;
+  }
+}
+
+@keyframes svg-ani {
+  0% {
+    stroke-dashoffset: 4890;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

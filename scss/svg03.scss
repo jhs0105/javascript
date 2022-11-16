@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(255, 148, 148);
+}
+#main-visual {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  svg {
+    width: 600px;
+    path {
+      stroke-width: 2px;
+    }
+  }
+  .title {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: clamp(48px, 10vw, 180px);
+    font-weight: 700;
+    font-family: "Fredoka";
+    text-transform: uppercase;
+    .char {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      background-image: url("../image/pattern.png");
+      background-clip: text;
+      -webkit-background-clip: text;
+      //-webkit-text-stroke: 1px #111;
+      text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
