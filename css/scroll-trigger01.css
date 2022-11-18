@@ -1,0 +1,21 @@
+.box {
+  width: 100px;
+  height: 100px;
+  margin-top: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.box.red {
+  background-color: #f00;
+}
+.box.blue {
+  background-color: #00f;
+  margin-bottom: 1500px;
+}
+.box.green {
+  background-color: green;
+}

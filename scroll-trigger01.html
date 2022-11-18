@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll-animation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/fancybox.css" />
+    <link rel="stylesheet" href="css/lightpick.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/splitting.css" />
+    <link rel="stylesheet" href="css/scroll-trigger01.css" />
+    <script src="https://kit.fontawesome.com/08ebc00fc6.js" crossorigin="anonymous"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="js/splitting.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/hangul-tools.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/lightpick.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/gsap/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>scroll <strong>animation</strong></h1>
+    </header>
+    <div>
+      <div class="box red">red</div>
+      <div class="box green">green</div>
+      <div class="box blue">blue</div>
+    </div>
+  </body>
+  <script>
+    // const redTop = $(".red").offset().top;
+    // console.log(redTop);
+
+    // $(window).on("scroll", function () {
+    //   const st = $(window).scrollTop();
+    //   console.log(st);
+    // });
+
+    /*prettier-ignore*/
+    gsap.to(".red", { x: 1200, rotation: 360, duration: 5, scrollTrigger: { 
+      trigger: ".red", 
+      markers: { fontSize: "20px", startColor: "#fff", endColor: "#3399cc", indent: 50 },
+      start:"top--=200 center", //start의 첫번째는 트리거되는 dom의 상단 지점 두번째는 화면의 하단 지점
+      end:"bottom+=200 top+=200", //end의 첫번째는 트리거되는 dom의 하단 지점 두번째는  화면의 상단 지점
+      //scrub:1, //속도 늦추는 것. 2 주면 좀 더 부드러워 준다. 1은 원래 자기 속도
+      pin:true, //pin을 주면 고정된다. 같이 올라가지 않는다!
+      toggleActions:"restart pause reverse resume", 
+      //scrub있을땐 동작 안한다.
+      //처음 2개는 내려올때 , 뒤에 2개는 올라갈떄. end 지점을 빠르게 지나가는 순간 동작을 멈춘다. scroll과 아무 의미 없음. 쓸 수 있는 것들: play, restart, pause,  reverse, resume (resume은 계속 진행)
+
+      } 
+    });
+    //trigger는 기준점.  red가 화면에 보이는 순간 움직인다.
+    //markers는 화면에 표시해 주는 것, indent는 들여쓰기 같은 것
+    gsap.to(".green", {
+      x: "90vw",
+      rotation: 360,
+      duration: 5,
+      scrollTrigger: {
+        trigger: ".green",
+        //markers: {},
+        start: "top center",
+        scrub: 2,
+      },
+    });
+    gsap.to(".blue", { x: 1200, rotation: 360, duration: 5, scrollTrigger: { trigger: ".blue" } });
+  </script>
+</html>

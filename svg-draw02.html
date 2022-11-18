@@ -33,7 +33,9 @@
     <header id="header">
       <h1>svg <strong>draw</strong></h1>
     </header>
+    <div class="imgbox"></div>
     <div id="main-visual">
+      <div class="imgbox"></div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 367.21 376.22">
         <defs>
           <style>
@@ -103,7 +105,9 @@
         .to(".cls-1", { opacity: 0.5, duration: 1 })
         .to(".cls-2", { opacity: 0.5, duration: 1 })
         .to(".cls-3", { opacity: 0.5, duration: 1 })
-        .from(".title .char", { y: -150, opacity: 0, duration: 1, stagger: { each: 0.1 }, ease: "bounce" });
+        .from(".title .char", { y: -150, opacity: 0, duration: 1, stagger: { each: 0.1 }, ease: "bounce" })
+        .to("svg", { duraiton: 2, opacity: 0 })
+        .to("#main-visual .imgbox", { opacity: 1, duration: 1 });
     </script>
   </body>
 </html>

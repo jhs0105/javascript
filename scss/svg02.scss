@@ -6,6 +6,15 @@ body {
   height: 100vh;
   justify-content: center;
   position: relative;
+  .imgbox {
+    position: absolute;
+    opacity: 0;
+    background-image: url(../image/02.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   svg {
     width: 600px;
     path {
